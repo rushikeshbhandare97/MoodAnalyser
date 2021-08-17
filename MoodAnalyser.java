@@ -1,25 +1,17 @@
-package MoodAnalyser;
 
-public class MoodAnalyser {
+public class MoodAnalysisException extends Exception {
+    public exceptionType type;
 
+    public MoodAnalysisException(exceptionType type, String message) {
+        super(message);
+        this.type = type;
+    }
 
-    public String analyseMood(String message) throws Exception {
-        class MoodAnalyserException extends Exception {
-            public MoodAnalyserException(String message) {
-                super(message);
-            }
-        }
-
-        if (message == null || message.isEmpty()) {
-            throw new MoodAnalyserException("Submit A name");
-        }
-        if (message.contains("sad")) {
-            return "SAD";
-        } else {
-            return "HAPPY";
-        }
+    public enum exceptionType {
+        ENTERED_EMPTY, ENTERED_NULL
     }
 }
+   
 
 
 
